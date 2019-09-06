@@ -25,7 +25,7 @@ const carouselArray = [
   "./assets/carousel/turntable.jpeg"
 ];
 let temp = 0;
-let count = 1;
+let count = 0;
 const Carousel = arr => {
   const carousel = document.createElement("div");
   const leftButton = document.createElement("div");
@@ -45,19 +45,19 @@ const Carousel = arr => {
   img.src = arr[temp];
 
   leftButton.addEventListener("click", e => {
-    img.src = arr[count];
     count--;
-    if (count === -1) {
+    if (count <= -1) {
       count = arr.length - 1;
     }
+    img.src = arr[count];
   });
 
   rightButton.addEventListener("click", e => {
-    img.src = arr[count];
     count++;
-    if (count === arr.length) {
+    if (count === 4) {
       count = 0;
     }
+    img.src = arr[count];
   });
 
   return carousel;
