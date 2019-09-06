@@ -40,8 +40,8 @@ const Carousel = arr => {
   leftButton.classList.add("left-button");
   rightButton.classList.add("right-button");
 
-  leftButton.textContent = " < ";
-  rightButton.textContent = " > ";
+  leftButton.textContent = "<";
+  rightButton.textContent = ">";
   img.src = arr[temp];
 
   leftButton.addEventListener("click", e => {
@@ -54,7 +54,7 @@ const Carousel = arr => {
 
   rightButton.addEventListener("click", e => {
     count++;
-    if (count === 4) {
+    if (count === arr.length) {
       count = 0;
     }
     img.src = arr[count];
@@ -63,5 +63,4 @@ const Carousel = arr => {
   return carousel;
 };
 
-// Carousel(carouselArray)
 carouselEntry.appendChild(Carousel(carouselArray));

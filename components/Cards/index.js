@@ -45,26 +45,37 @@ const Card = someObj => {
   return card;
 };
 
+// axios.get("https://lambda-times-backend.herokuapp.com/articles").then(res => {
+//   console.log(res.data.articles);
+//   res.data.articles.bootstrap.forEach(item => {
+//     const makeCard = Card(item);
+//     cardContainer.appendChild(makeCard);
+//   });
+//   res.data.articles.javascript.forEach(item => {
+//     const makeCard = Card(item);
+//     cardContainer.appendChild(makeCard);
+//   });
+//   res.data.articles.jquery.forEach(item => {
+//     const makeCard = Card(item);
+//     cardContainer.appendChild(makeCard);
+//   });
+//   res.data.articles.node.forEach(item => {
+//     const makeCard = Card(item);
+//     cardContainer.appendChild(makeCard);
+//   });
+//   res.data.articles.technology.forEach(item => {
+//     const makeCard = Card(item);
+//     cardContainer.appendChild(makeCard);
+//   });
+// });
+
 axios.get("https://lambda-times-backend.herokuapp.com/articles").then(res => {
-  console.log(res.data.articles);
-  res.data.articles.bootstrap.forEach(item => {
-    const makeCard = Card(item);
-    cardContainer.appendChild(makeCard);
-  });
-  res.data.articles.javascript.forEach(item => {
-    const makeCard = Card(item);
-    cardContainer.appendChild(makeCard);
-  });
-  res.data.articles.jquery.forEach(item => {
-    const makeCard = Card(item);
-    cardContainer.appendChild(makeCard);
-  });
-  res.data.articles.node.forEach(item => {
-    const makeCard = Card(item);
-    cardContainer.appendChild(makeCard);
-  });
-  res.data.articles.technology.forEach(item => {
-    const makeCard = Card(item);
-    cardContainer.appendChild(makeCard);
+  console.log(res.data);
+  const myArr = Object.keys(res.data.articles);
+  myArr.forEach(x => {
+    res.data.articles[x].forEach(item => {
+      const makeCard = Card(item);
+      cardContainer.appendChild(makeCard);
+    });
   });
 });
