@@ -34,7 +34,8 @@ const Card = someObj => {
   author.appendChild(by);
 
   card.classList.add("card");
-  headline.classList.add("author");
+  headline.classList.add("headline");
+  author.classList.add("author");
   imgContainer.classList.add("img-container");
 
   headline.textContent = someObj.headline;
